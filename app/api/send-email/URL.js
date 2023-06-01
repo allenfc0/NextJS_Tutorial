@@ -1,0 +1,1 @@
+export const HANDLE_URL = "http://localhost:5000";

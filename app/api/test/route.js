@@ -5,11 +5,12 @@ const DATA_SOURCE_URL = "https://jsonplaceholder.typicode.com/todos";
 const API_KEY = process.env.DATA_SOURCE_URL + "";
 
 
-export async function GET() {
+export async function GET(req) {
+    const { method } = req;
+    console.log(method);
     const res = await fetch(DATA_SOURCE_URL);
 
      const todos = await res.json();
-
      return NextResponse.json(todos);
 }
 
@@ -30,7 +31,7 @@ export async function POST(req) {
     })
 
     const newTodo = await res.json();
-
+    
     return NextResponse.json(newTodo);
 }
 
